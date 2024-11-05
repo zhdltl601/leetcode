@@ -1,6 +1,9 @@
 ﻿using System;
+#region Problems
 using static LeetCode.Problems.Problem;
+using static LeetCode.Problems.Problem.Unsorted;
 using static LeetCode.Problems.Problem.MonotonicStack;
+#endregion
 namespace LeetCode
 {
     namespace Problems
@@ -31,9 +34,13 @@ namespace LeetCode
                     }
                     return dp[n, m];
                 }
+
+                [LeetCode(42, Status.Incomplete)]
+                public static int Trap(int[] height)
+                {
+                    return default;
+                }
             }
-
-
         }
     }
     public class Program
