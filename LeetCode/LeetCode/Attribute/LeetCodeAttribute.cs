@@ -7,18 +7,23 @@ namespace LeetCode.Problems
         Completed,
         Incomplete
     }
+    [Flags]
+    public enum Tag
+    {
+        None,
+        Sort,
+        Greedy,
+        DP,
+        Math
+    }
     /// <summary>
     /// leetcode problem attribute
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
     public sealed class LeetCodeAttribute : Attribute
     {
-        public readonly uint Value;
-        public readonly Status Status;
-        public LeetCodeAttribute(uint value, Status status = Status.Incomplete)
+        public LeetCodeAttribute(uint value, Status status = Status.Incomplete, Tag tag = Tag.None)
         {
-            Value = value;
-            Status = status;
         }
     }
 

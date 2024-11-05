@@ -10,6 +10,9 @@ namespace LeetCode
     {
         public static partial class Problem
         {
+            /// <summary>
+            /// lists from Tags are all Unsorted
+            /// </summary>
             public static partial class Unsorted
             {
                 [LeetCode(1143, Status.Completed)]
