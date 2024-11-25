@@ -3,9 +3,9 @@
 namespace LeetCode.Problems
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    sealed class LeetCodeListAttribute : Attribute
+    public sealed class LeetCodeURLAttribute : Attribute
     {
-        public LeetCodeListAttribute(string url)
+        public LeetCodeURLAttribute(string url)
         {
         }
     }

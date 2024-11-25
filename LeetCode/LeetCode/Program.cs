@@ -1,47 +1,80 @@
 ﻿using System;
+using LeetCode.DataDefintions;
 #region Problems
-using static LeetCode.Problems.Problem;
-using static LeetCode.Problems.Problem.Unsorted;
-using static LeetCode.Problems.Problem.MonotonicStack;
+using static LeetCode.Problems.Problems;
+using static LeetCode.Problems.Problems.Unsorted;
+using static LeetCode.Problems.Problems.DP;
 #endregion
 namespace LeetCode
 {
     namespace Problems
     {
-        public static partial class Problem
+        public static partial class Problems
         {
             /// <summary>
             /// lists from Tags are all Unsorted
             /// </summary>
             public static partial class Unsorted
             {
-                [LeetCode(1143, Status.Completed)]
-                public static int LongestCommonSubsequence(string text1, string text2)
-                {
-                    int n = text1.Length;
-                    int m = text2.Length;
-                    int[,] dp = new int[n + 1, m + 1];
-                    for (int i = 1; i <= n; i++)
-                    {
-                        for (int j = 1; j <= m; j++)
-                        {
-                            if (text1[i - 1] == text2[j - 1])
-                            {
-                                dp[i, j] = dp[i - 1, j - 1] + 1;
-                            }
-                            else
-                            {
-                                dp[i, j] = Math.Max(dp[i - 1, j], dp[i, j - 1]);
-                            }
-                        }
-                    }
-                    return dp[n, m];
-                }
-
                 [LeetCode(42, Status.Incomplete)]
                 public static int Trap(int[] height)
                 {
+                    //Span<int> arr = height;
                     return default;
+                }
+
+                [LeetCode(2, Status.Incomplete)]
+                public static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+                {
+                    ListNode result = null;
+                    void F(ListNode l1, ListNode l2, int additinoal)
+                    {
+                        if (l1 == null && l2 == null && additinoal == 0) return;
+                        int l1Val = l1 == null ? 0 : l1.val;
+                        int l2Val = l2 == null ? 0 : l2.val;
+                        int sum = additinoal + l1Val + l2Val;
+                        int resultAdditinoal = 0;
+                        if (sum > 9)
+                        {
+                            int oneDigit = sum % 10;
+                            resultAdditinoal = (sum - oneDigit) / 10;
+                            sum = oneDigit;
+                        }
+                        Console.WriteLine(sum + " ");
+                        //ListNode cur = default;
+                        //cur.val = sum;
+                        F(l1?.next, l2?.next, resultAdditinoal);
+                    }
+                    F(l1, l2, 0);
+                    return result;
+                }
+                public static ListNode AddTwoNumbers2(ListNode l1, ListNode l2)
+                {
+                    ListNode result = new ListNode();
+                    void F(ListNode l1, ListNode l2, int additinoal)
+                    {
+                        if (l1 == null && l2 == null && additinoal == 0) return;
+
+                        int l1Val = l1 == null ? 0 : l1.val;
+                        int l2Val = l2 == null ? 0 : l2.val;
+                        int sum = additinoal + l1Val + l2Val;
+                        int resultAdditinoal = 0;
+                        if (sum > 9)
+                        {
+                            int oneDigit = sum % 10;
+                            resultAdditinoal = (sum - oneDigit) / 10;
+                            sum = oneDigit;
+                        }
+
+                        Console.WriteLine(sum + " ");
+
+
+
+                        F(l1?.next, l2?.next, resultAdditinoal);
+                    }
+
+                    F(l1, l2, 0);
+                    return result;
                 }
             }
         }
@@ -50,12 +83,30 @@ namespace LeetCode
     {
         public static void Main()
         {
-            static void InvokeWithProblemNumber(int number, params object[] @params)
+            void C2()
             {
-
-                //incomplete
+                //var a1 = new ListNode(9, null);
+                //var a2 = new ListNode(9, a1);
+                //var a3 = new ListNode(9, a2);
+                //var a4 = new ListNode(9, a3);
+                //var a5 = new ListNode(9, a4);
+                //var a6 = new ListNode(9, a5);
+                //var a7 = new ListNode(9, a6);
+                //
+                //var b1 = new ListNode(9, null);
+                //var b2 = new ListNode(9, b1);
+                //var b3 = new ListNode(9, b2);
+                //var b4 = new ListNode(9, b3);
+                //
+                //var result = AddTwoNumbers(a7, b4);
+                //Console.WriteLine(result);
             }
 
+            //static void InvokeWithProblemNumber(int number, params object[] @params)
+            //{
+            //
+            //    //incomplete
+            //}
         }
     }
 }

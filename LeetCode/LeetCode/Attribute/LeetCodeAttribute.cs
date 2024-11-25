@@ -4,11 +4,11 @@ namespace LeetCode.Problems
 {
     public enum Status
     {
-        Completed,
+        Complete,
         Incomplete
     }
     [Flags]
-    public enum Tag
+    public enum Topic
     {
         None,
         Sort,
@@ -22,7 +22,7 @@ namespace LeetCode.Problems
     [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
     public sealed class LeetCodeAttribute : Attribute
     {
-        public LeetCodeAttribute(uint value, Status status = Status.Incomplete, Tag tag = Tag.None)
+        public LeetCodeAttribute(uint value, Status status = Status.Incomplete, Topic tag = Topic.None)
         {
         }
     }
