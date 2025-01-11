@@ -1,12 +1,9 @@
 ﻿using System;
 
-namespace LeetCode.Problems
+[AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
+public sealed class LeetCodeURLAttribute : Attribute
 {
-    [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    public sealed class LeetCodeURLAttribute : Attribute
+    public LeetCodeURLAttribute(string url)
     {
-        public LeetCodeURLAttribute(string url)
-        {
-        }
     }
 }
