@@ -8,7 +8,7 @@ namespace LeetCode
 {
     namespace Problems
     {
-        public static partial class Problems
+        public static partial class Problem
         {
             public static partial class DP
             {
@@ -34,10 +34,23 @@ namespace LeetCode
                     }
                     return dp[n, m];
                 }
-                [LeetCode(1143, Status.Incomplete)]
+                [LeetCode(300, Status.Incomplete)]
                 public static int LengthOfLIS(int[] nums)
                 {
+                    int[] dp = new int[nums.Length];
+                    dp[0] = 1;
+                    int length = 0;
+                    for (int i = 1; i < nums.Length; i++)
+                    {
+                        for (int j = 0; j < i; i++)
+                        {
+                            if (nums[i] > nums[j])
+                            {
+                                dp[i] = Math.Max(dp[i], dp[j] + 1);
+                            }
+                        }
 
+                    }
                     return default;
                 }
             }
